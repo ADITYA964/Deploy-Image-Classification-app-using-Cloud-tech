@@ -1,3 +1,5 @@
+  GNU nano 3.2                                                                                             kubernetes_API_service.yaml                                                                                                       
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -9,3 +11,12 @@ spec:
       targetPort: 8501
     selector:
         app: image-classify
+
+
+
+
+
+
+
+
+
