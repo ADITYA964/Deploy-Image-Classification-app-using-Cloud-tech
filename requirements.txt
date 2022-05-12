@@ -1,0 +1,10 @@
+tensorflow==2.7.0
+keras==2.7.0
+streamlit==0.62.0
+scikit-image==0.18.0
+opencv-python
+gdown
+numpy
+pandas
+matplotlib
+Pillow
