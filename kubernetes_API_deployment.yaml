@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+# metadata
+metadata:
+  name: image-classify-deployment
+  labels:
+    app: image-classify
+    type: front-end
+
+# replicaset specs
+spec:
+  template: # pod template, same metadata and spec as pod.yaml
+    metadata:
+      name: image-classify-pod
+      labels:
+          app: image-classify
+          type: front-end
+    spec:
+        containers:
+          - name: image-classify-container
+            image: adityax123/image-classify-docker-image:1.0.0 # DockerHub
+            ports:
+              - containerPort: 8501
+  replicas: 1 # number of pods to be deployed. 
+         
+  selector:   
+    matchLabels:
+      type: front-end
