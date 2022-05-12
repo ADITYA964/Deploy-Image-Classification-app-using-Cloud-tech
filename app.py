@@ -37,14 +37,13 @@ if file is None:
 else:
   temp_file.write(file.getvalue())
   
-  if not os.path.isdir("test"):
-    os.mkdir("test")
+  
     
   im = Image.open(temp_file)
-  im.save("test/1.png")
+  im = np.array(im)
   
-  orig = plt.imread("test/1.png")
-  image = tf.image.resize(orig, (224, 224))
+ 
+  image = tf.image.resize(im, (224, 224))
   image = np.array(image)
   image = np.expand_dims(image, axis=0)
   image = preprocess_input(image)
@@ -55,13 +54,6 @@ else:
 
   P = decode_predictions(preds)
 
-  A=plt.figure(figsize=(30,20))
-    
-  plt.axis("off")
-  plt.imshow(Image.fromarray(orig))
-  plt.grid(False)
-
-  st.pyplot(A)
   
   for (i, (imagenetID, label, prob)) in enumerate(P[0]):
     st.write("""## """,i + 1,""" """,label,""" """,prob * 100)
