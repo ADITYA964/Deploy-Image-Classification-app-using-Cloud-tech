@@ -16,5 +16,5 @@ spec:
         - name: image-classify-docker-image
           image: adityax123/image-classify-docker-image:1.0.0
           ports:
-          - containerPort: 80
+          - containerPort: 8501
 
