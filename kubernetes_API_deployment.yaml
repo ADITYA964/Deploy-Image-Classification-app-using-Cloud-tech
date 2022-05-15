@@ -13,7 +13,7 @@ spec:
         app: image-classify
     spec:
       containers:
-        - name: image-classify-docker-image
+        - name: image-classify-container
           image: adityax123/image-classify-docker-image:1.1.2
           ports:
           - containerPort: 8501
