@@ -1,20 +1,27 @@
-apiVersion : apps/v1
+apiVersion: apps/v1
 kind: Deployment
+
+
 metadata:
-  name: image-classify
+  name: image-classify-deployment
+  labels:
+    app: image-classify
+    type: front-end
+
 spec:
+  template: 
+    metadata:
+      name: image-classify-pod
+      labels:
+          app: image-classify
+          type: front-end
+    spec:
+        containers:
+          - name: image-classify-container
+            image: adityax123/image-classify-docker-image:1.1.2
+            ports:
+              - containerPort: 8501
   replicas: 1
   selector:
     matchLabels:
-      app: image-classify
-  template:
-    metadata:
-      labels:
-        app: image-classify
-    spec:
-      containers:
-        - name: image-classify-container
-          image: adityax123/image-classify-docker-image:1.1.2
-          ports:
-          - containerPort: 8501
-
+      type: front-end
