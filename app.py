@@ -34,6 +34,7 @@ from keras.preprocessing import image as image_utils
 from keras.applications.imagenet_utils import preprocess_input
 from keras.applications.imagenet_utils import decode_predictions
 
+
 # Give title to the webpage.
 st.write("""
          # Image Classification application 
