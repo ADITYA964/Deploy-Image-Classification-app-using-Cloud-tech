@@ -52,23 +52,23 @@ else:
   
   
     
-  im = Image.open(temp_file)
-  im = np.array(im)
-  
- 
-  image = tf.image.resize(im, (224, 224))
-  image = np.array(image)
-  image = np.expand_dims(image, axis=0)
-  image = preprocess_input(image)
-  
-  model = VGG16(weights="imagenet")
+im = Image.open(temp_file)
+im = np.array(im)
 
-  preds = model.predict(image)
 
-  P = decode_predictions(preds)
+image = tf.image.resize(im, (224, 224))
+image = np.array(image)
+image = np.expand_dims(image, axis=0)
+image = preprocess_input(image)
 
-  
-  for (i, (imagenetID, label, prob)) in enumerate(P[0]):
-    st.write("""## """,i + 1,""" """,label,""" """,prob * 100)
-    
-  shutil.rmtree("test")  
+model = VGG16(weights="imagenet")
+
+preds = model.predict(image)
+
+P = decode_predictions(preds)
+
+
+for (i, (imagenetID, label, prob)) in enumerate(P[0]):
+st.write("""## """,i + 1,""" """,label,""" """,prob * 100)
+
+shutil.rmtree("test")  
