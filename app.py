@@ -34,12 +34,23 @@ from keras.preprocessing import image as image_utils
 from keras.applications.imagenet_utils import preprocess_input
 from keras.applications.imagenet_utils import decode_predictions
 
+def preprocess_input(temp_file):
+  
+  im = Image.open(temp_file)
+  im = np.array(im)
+
+  image = tf.image.resize(im, (224, 224))
+  image = np.array(image)
+  image = np.expand_dims(image, axis=0)
+  image = preprocess_input(image)
+  return image
 
 # Give title to the webpage.
 st.write("""
          # Image Classification application 
          """
          )
+
 # Read input image in PNG or JPG format and 
 # store into I/O byte format for further operations.
 file = st.file_uploader("Please upload image to be classified", type=["png","jpg"])
@@ -51,16 +62,7 @@ if file is None:
 else:
   temp_file.write(file.getvalue())
   
-  
-    
-im = Image.open(temp_file)
-im = np.array(im)
-
-
-image = tf.image.resize(im, (224, 224))
-image = np.array(image)
-image = np.expand_dims(image, axis=0)
-image = preprocess_input(image)
+image = preprocess_input(temp_file)
 
 model = VGG16(weights="imagenet")
 
