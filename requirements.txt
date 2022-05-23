@@ -4,7 +4,8 @@ pandas
 Pillow
 matplotlib
 opencv-python
-keras==2.7.0
+click==8.0.4
+keras==2.8.0
 streamlit==0.62.0
-tensorflow==2.7.0
+tensorflow==2.8.0
 scikit-image==0.18.0
