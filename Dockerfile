@@ -3,7 +3,7 @@
 # We are importing an Ubuntu Operating system with 
 # version of 22.04 for our virtual workspace to run in cloud.
 FROM ubuntu:22.04
-ENV DEBIAN_FRONTEND=noninteractive
+
 # To create python 3.9 environment.
 RUN apt-get update \
     && apt-get install -y git python3-pip python3.9 
