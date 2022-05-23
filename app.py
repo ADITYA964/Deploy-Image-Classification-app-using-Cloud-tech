@@ -36,7 +36,7 @@ from keras.applications.imagenet_utils import decode_predictions
 
 # ====================== Function ======================
 
-def preprocess_input(temp_file):
+def preprocess_input_image(temp_file):
  
   """
     Apply preprocessing operations on image data.
@@ -84,7 +84,7 @@ else:
 
 # Preprocess image before prediction. 
 
-image = preprocess_input(temp_file)
+image = preprocess_input_image(temp_file)
 
 # Initialize a VGG16 model with the weights of Imagenet.
 
