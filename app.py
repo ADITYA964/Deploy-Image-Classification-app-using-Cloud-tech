@@ -50,7 +50,7 @@ def preprocess_input_image(temp_file):
         return: np.array()
             
     :Usage Example:
-        >>>   image = preprocess_input(temp_file)
+        >>>   image = preprocess_input_image(temp_file)
   """
  
   im = Image.open(temp_file)
