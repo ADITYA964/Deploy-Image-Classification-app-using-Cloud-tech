@@ -45,7 +45,6 @@ def preprocess_input_image(temp_file):
     
         temp_file: I/O byte data of image.
             Shape : (256,1)
-
     :Returns:
         
         return: np.array()
@@ -82,23 +81,23 @@ if file is None:
 else:
   temp_file.write(file.getvalue())
 
-# Preprocess image before prediction. 
+  # Preprocess image before prediction. 
 
-image = preprocess_input_image(temp_file)
+  image = preprocess_input_image(temp_file)
 
-# Initialize a VGG16 model with the weights of Imagenet.
+  # Initialize a VGG16 model with the weights of Imagenet.
 
-model = VGG16(weights="imagenet")
+  model = VGG16(weights="imagenet")
 
-# Perform prediction.
+  # Perform prediction.
 
-preds = model.predict(image)
+  preds = model.predict(image)
 
-# Extract details of classified image.
+  # Extract details of classified image.
 
-P = decode_predictions(preds)
+  P = decode_predictions(preds)
 
-# Display top categories classified for input image.
+  # Display top categories classified for input image.
 
-for (i, (imagenetID, label, prob)) in enumerate(P[0]):
-  st.write("""## """,i + 1,""" """,label,""" """,prob * 100)
+  for (i, (imagenetID, label, prob)) in enumerate(P[0]):
+    st.write("""## """,i + 1,""" """,label,""" """,prob * 100)
