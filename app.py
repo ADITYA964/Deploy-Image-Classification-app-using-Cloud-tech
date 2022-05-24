@@ -44,7 +44,7 @@ def preprocess_input_image(temp_file):
     :Parameters:
     
         temp_file: I/O byte data of image.
-            Shape : (256,1)
+        
     :Returns:
         
         return: np.array()
